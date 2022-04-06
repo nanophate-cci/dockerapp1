@@ -15,5 +15,5 @@ jobs:
               docker-compose -f ~/project/docker-compose.yml top redis | head -n1
       - run:
           name: log
-          command: docker-compose log
+          command: docker-compose -f ~/project/docker-compose.yml logs
           when: always

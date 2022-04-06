@@ -12,5 +12,8 @@ jobs:
       - run:
           name: check
           command: |
-              docker-compose -f ~/project/docker-compose.yml top redis | head -n1 || true
-
+              docker-compose -f ~/project/docker-compose.yml top redis | head -n1
+      - run:
+          name: log
+          command: docker-compose log
+          when: always

@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: /dockerapp1
     machine:
       image: ubuntu-2004:202201-02
     steps:

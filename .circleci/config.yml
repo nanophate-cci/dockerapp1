@@ -12,4 +12,4 @@ jobs:
       - run:
           name: check
           command: |
-            docker docker-compose -f ~/docker-compose.yml top redis | head -n1
+            docker-compose -f ~/docker-compose.yml top redis | head -n1

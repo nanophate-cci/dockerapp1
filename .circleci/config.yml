@@ -3,18 +3,14 @@ jobs:
   build:
     machine:
       image: ubuntu-2204:edge
-    paralleism: 20
     steps:
       - checkout
       - run:
-          name: Run tests
+          name: command
           command: |
-            docker-compose up -d
-      - run:
-          name: check
-          command: |
-              docker-compose -f ~/project/docker-compose.yml top redis | head -n1
-      - run:
-          name: log
-          command: docker-compose -f ~/project/docker-compose.yml logs
-          when: always
+              sudo mkdir -p /var/cache/swap/
+              sudo dd if=/dev/zero of=/var/cache/swap/swap0 bs=64M count=64
+              sudo chmod 0600 /var/cache/swap/swap0
+              sudo mkswap /var/cache/swap/swap0
+              sudo swapon /var/cache/swap/swap0
+              sudo swapon -s
